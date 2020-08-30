@@ -1,0 +1,22 @@
+#IntelliJ ide stuff:
+.idea/
+.vscode/
+*.iws
+*.iml
+/out/
+target/
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+*.env
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
