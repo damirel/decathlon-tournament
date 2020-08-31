@@ -11,6 +11,6 @@ import com.nagel.decathlon.domain.Tournament;
  */
 public interface ExportService {
 
-    void export(Tournament tournament, String fileName);
+    void export(Tournament tournament, String filePath);
 
 }

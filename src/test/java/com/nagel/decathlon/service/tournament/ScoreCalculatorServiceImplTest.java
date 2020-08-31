@@ -42,9 +42,6 @@ public class ScoreCalculatorServiceImplTest {
     }
 
     private AthleteResult getAthleteResult(String value, Integer order) {
-        AthleteResult athleteResult = new AthleteResult();
-        athleteResult.setEvent(Event.getFromOrder(order));
-        athleteResult.setScore(value);
-        return athleteResult;
+        return new AthleteResult(Event.getFromOrder(order), value);
     }
 }

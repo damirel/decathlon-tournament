@@ -12,9 +12,6 @@ import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.nagel.decathlon.utils.Constants.FILE_PATH;
-import static com.nagel.decathlon.utils.Constants.USER_PATH;
-
 /**
  * XmlExportService.
  * <p>
@@ -25,13 +22,13 @@ import static com.nagel.decathlon.utils.Constants.USER_PATH;
 public class XmlExportService implements ExportService {
 
     @Override
-    public void export(Tournament tournament, String fileName) {
-        File file = new File(String.format(FILE_PATH, USER_PATH, fileName));
+    public void export(Tournament tournament, String filePath) {
         try {
+            File file = new File(filePath);
             JAXBContext jaxbContext = JAXBContext.newInstance(TournamentXml.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            jaxbMarshaller.marshal(convert(tournament), file);
+            Marshaller marshaller = jaxbContext.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            marshaller.marshal(convert(tournament), file);
         } catch (JAXBException e) {
             throw new RuntimeException(
                     String.format("Error, while exporting result for the tournament. Tournament:%s", tournament), e);

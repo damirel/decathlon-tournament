@@ -14,6 +14,11 @@ public class AthleteResult {
     private Event event;
     private String score;
 
+    public AthleteResult(Event event, String score) {
+        this.event = event;
+        this.score = score;
+    }
+
     public Event getEvent() {
         return event;
     }

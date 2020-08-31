@@ -54,7 +54,8 @@ public class DecathlonTournament {
         String inputFilePath = String.format(FILE_PATH, USER_PATH, properties.getProperty(INPUT_FILE_PROPERTY));
         List<Athlete> athletes = inputResultProcessor.loadInputResult(inputFilePath);
         Tournament tournament = tournamentService.calculateResult(athletes);
-        exportService.export(tournament, properties.getProperty(OUTPUT_FILE_PROPERTY));
+        String exportFilePath = String.format(FILE_PATH, USER_PATH, properties.getProperty(OUTPUT_FILE_PROPERTY));
+        exportService.export(tournament, exportFilePath);
     }
 
     private Properties loadProperties() {
