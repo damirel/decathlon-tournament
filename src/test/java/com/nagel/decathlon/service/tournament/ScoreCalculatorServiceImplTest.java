@@ -32,7 +32,7 @@ public class ScoreCalculatorServiceImplTest {
         int actual = sut.getTotalScore(athleteResults);
 
         //then
-        assertThat(actual, equalTo(2258));
+        assertThat(actual, equalTo(3199));
     }
 
     private List<AthleteResult> getAthleteResults(String[] scores) {

@@ -20,10 +20,10 @@ public class FieldEventProcessor implements EventProcessor {
      */
     @Override
     public int calculateScore(Event event, String score) {
-        double distance = EventUtils.convert(score);
+        double distance = EventUtils.convertFieldScore(event.getMeasuringPoint(), score);
         if (distance <= event.getB()) {
             return 0;
         }
-        return (int) ((Math.pow(((EventUtils.convert(score) - event.getB())), event.getC())) * event.getA());
+        return (int) ((Math.pow(((distance - event.getB())), event.getC())) * event.getA());
     }
 }

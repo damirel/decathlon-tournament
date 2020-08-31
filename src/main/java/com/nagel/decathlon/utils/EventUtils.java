@@ -1,5 +1,7 @@
 package com.nagel.decathlon.utils;
 
+import com.nagel.decathlon.domain.MeasuringPoint;
+
 /**
  * EventUtils.
  * <p>
@@ -10,8 +12,21 @@ package com.nagel.decathlon.utils;
 public final class EventUtils {
 
     private final static String DELIMITER = ":";
+    private final static int CM_COEFFICIENT = 100;
 
     private EventUtils() {
+    }
+
+    public static double convertFieldScore(MeasuringPoint measuringPoint, String value) {
+        switch (measuringPoint) {
+            case M:
+                return convert(value);
+            case CM:
+                return convert(value) * CM_COEFFICIENT;
+            default:
+                throw new RuntimeException(
+                        String.format("Unsupported measuring point. MeasuringPoint:%s", measuringPoint));
+        }
     }
 
     public static double convert(String value) {
